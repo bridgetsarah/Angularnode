@@ -1,0 +1,38 @@
+<!doctype HTML>
+<html>
+    <head>
+    <title> Hello World Mean Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    </head>
+    <body ng-app='app'>
+     <div class='Container'>
+         <h1>Recent Posts</h1>
+         <ul class='list-group'>
+             <li class='list-group-item'>
+                 <strong>@bridgetsarah</strong>
+                 <span>Node rules!</span>
+                 </li>
+             <li class='list-group-item'>
+                 <strong>@bridgetsarah</strong>
+                 <span>Trying out angular js </span>
+             </li>
+         </ul>
+     </div> 
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+    <script>
+        var app = angular.module('app', [])
+        app.controller('PostsCtrl', function ($scope) {
+            $scope.posts = [
+            {
+                username: 'bridget',
+                body: 'node rules!'
+            },
+            {
+                username: 'bridget123',
+                body: 'trying out angular js'
+            }
+            ]
+        })
+    </script>   
+    </body>
+</html>
