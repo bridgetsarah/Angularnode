@@ -5,16 +5,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     </head>
     <body ng-app='app'>
-     <div class='Container'>
+     <div ng-controller='PostsCtrl' class='Container'>
          <h1>Recent Posts</h1>
          <ul class='list-group'>
-             <li class='list-group-item'>
-                 <strong>@bridgetsarah</strong>
-                 <span>Node rules!</span>
-                 </li>
-             <li class='list-group-item'>
-                 <strong>@bridgetsarah</strong>
-                 <span>Trying out angular js </span>
+            <li ng-repeat='posts in posts' class='list-group-item'>
+                 <strong>@{{ post.username}}</strong>
+                 <span>{{ post.body }}</span>
              </li>
          </ul>
      </div> 
