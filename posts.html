@@ -32,35 +32,39 @@
     // create app module
     var app = angular.module('app', [])
 
-    // create the PostsCtrl Module
-    // dependency inject $scope
-     app.controller('PostsCtrl', function ($scope) {
+    // PostsController Module & Dependency Inject Scope
+
+     app.controller('PostsCtrl', function ($scope, $http) {
         
-    // the function runs when the "add post" button is clicked   
-        $scope.addpost = function () {
-    // only add a post if there is a body
-         if ($scope.postBody) {
-    // unshift a new post into $scope.posts 
-        $scope.posts.unshift({
+    
+        $scope.addpost = function () {                  // the function runs when the "add post" button is clicked   
+         if ($scope.postBody) {                         // only add a post if there is a body                      
+          $scope.posts.unshift({                        // unshift a new post into $scope.posts 
             username: 'bridgetsarah',
-            body: $scope.postbody // use the text entered
+            body: $scope.postbody                       // use the text entered
         })
-    // clear out the input field
-        $scope.postBody = null
+                                                        
+        $scope.postBody = null                          // clear out the input field
         }
         }
-    // Starting data    
-        $scope.posts = [
-        {
-             username: 'bridget',
-             body: 'node rules!'
-        },
-        {
-             username: 'bridget123',
-             body: 'trying out angular js'
-        }
-        ]
+        // New $HTTP scope posts section               ----------------------------------------------------                                         
+        $http.get('http://localhost:3000/api/posts')
+        .success(function (posts){
+            $scope.posts = posts
         })
+        
+        
+    //  $scope.posts = [                                // Starting data   replacing area with http
+    //   {
+    //        username: 'bridget',
+    //        body: 'node rules!'
+    //    },
+    //   {
+    //        username: 'bridget123',
+    //         body: 'trying out angular js'
+    //   }
+    //   ]
+    //   })
     </script>   
     </body>
 </html>
