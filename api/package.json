@@ -23,8 +23,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
     "mongoose": "^5.4.10",
     "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0"
   }
 }
