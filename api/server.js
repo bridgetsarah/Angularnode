@@ -7,6 +7,10 @@ var Post = require('./models/post')
 var app = express()
 app.use(bodyParser.json())
 
+app.use('/api/posts', require('./controllers/api/posts')                         // equalivant to: app.use('/', require('.controllers/static'))
+app.use( require('./controllers/static'))
+
+
 //Get Request from DB
 app.get('/api/posts', function (req, res, next) {
     post.find()
