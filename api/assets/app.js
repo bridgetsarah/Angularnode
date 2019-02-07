@@ -1,4 +1,4 @@
-// api/ng/app.js
+// api/assets/app.js
 
 var app = angular.module('app', [])
 
