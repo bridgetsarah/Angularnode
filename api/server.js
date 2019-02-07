@@ -2,7 +2,7 @@
 
 var express = require('express')
 var bodyParser = require('body-parser')
-var Post = require('.models/post')
+var Post = require('./models/post')
 
 var app = express()
 app.use(bodyParser.json())
@@ -14,17 +14,6 @@ app.get('/api/posts', function (req, res, next) {
     res.json(posts)
     })
 })   
-
-/// Unsure on section?   res.json([
-//      {
-//        username: 'bridgetsarah',
-//        body: 'node rocks!'
-//      }
-//  ])
-// })
-
-
-
 //Creating Post End Point
 //------------------------------------------------var Post = require('.models/post')
 app.post('/api/posts', function (req, res, next){
@@ -32,18 +21,11 @@ app.post('/api/posts', function (req, res, next){
         username: req.body.username,
         body:     req.body.body  
     })
-post.save(function (err, post) {
+    post.save(function (err, post) {
     if (err) {return next (err) }
     res.json(201, post)
     })
    })
-  
-  // Console Log messages 
-    console.log('post received!')
-    console.log(req.body.username)
-    console.log(req.body.body)
-    res.send(201)
-
 //server listening
 app.listen(3000, function (){
     console.log('server listening on', 3000)
