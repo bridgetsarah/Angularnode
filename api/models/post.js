@@ -1,4 +1,4 @@
-// post to DB
+// Database Model - post to DB
 
 var db = require('../db')
 var Post = db.model('Post', {
