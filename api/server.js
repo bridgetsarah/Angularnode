@@ -7,15 +7,17 @@ var Post = require('./models/post')
 var app = express()
 app.use(bodyParser.json())
 
-app.use('/api/posts', require('./controllers/api/posts')                         // equalivant to: app.use('/', require('.controllers/static'))
+app.use('/api/posts', require('./controllers/api/posts'))                         // 
 app.use( require('./controllers/static'))
+//equalivant to: app.use('/', require('.controllers/static'))
+
 
 
 //Get Request from DB
 app.get('/api/posts', function (req, res, next) {
     post.find()
         .sort('-date')
-        .exec(function (err, posts {
+        .exec(function (err, posts) {
            if (err) { return next (err) } 
            res.json(posts)
     })
@@ -40,6 +42,6 @@ app.get('/', function (req, res) {
 
 
    //server listening
-app.listen(3000, function (){
+app.listen(3000, function () {
     console.log('server listening on', 3000)
 })
