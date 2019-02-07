@@ -19,3 +19,11 @@ app.get('/api/posts', function (req, res) {
 app.listen(3000, function (){
     console.log('server listening on', 3000)
 })
+
+//Creating Post End Point
+app.post('/api/posts', function (req, res){
+    console.log('post received!')
+    console.log(req.body.username)
+    console.log(req.body.body)
+    res.send(201)
+})
