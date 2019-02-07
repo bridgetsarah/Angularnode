@@ -1,0 +1,27 @@
+{
+  "name": "socialapp",
+  "version": "1.0.0",
+  "description": "Node Express API",
+  "main": "server.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/mean/api"
+  },
+  "keywords": [
+    "Mongo",
+    "Express",
+    "Angular",
+    "JS",
+    "Node",
+    "JS"
+  ],
+  "author": "Bridget Sarah",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}

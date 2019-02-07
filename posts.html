@@ -13,7 +13,7 @@
         <div class='input-group'> 
         <input ng-model='postbody' class='form-control' />
         <span class='input-group-btn'>
-              <button ng-click='add post()' class='btn btn-default'>Add Posts</button>   
+            <button ng-click='add post()' class='btn btn-default'>Add Posts</button>   
         </span>
         </div>
         </div>
@@ -21,8 +21,8 @@
     <!-- list group items-->
          <ul class='list-group'>
         <li ng-repeat='posts in posts' class='list-group-item'>
-                 <strong>@{{ post.username}}</strong>
-                 <span>{{ post.body }}</span>
+            <strong>@{{ post.username}}</strong>
+            <span>{{ post.body }}</span>
         </li>
         </ul>
         </div>
