@@ -26,7 +26,14 @@ app.post('/api/posts', function (req, res, next){
     res.json(201, post)
     })
    })
-//server listening
+// New server end point
+app.get('/', function (req, res) {
+    res.sendfile('layouts/posts.html')
+})
+
+
+
+   //server listening
 app.listen(3000, function (){
     console.log('server listening on', 3000)
 })
