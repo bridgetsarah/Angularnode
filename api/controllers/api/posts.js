@@ -2,11 +2,11 @@
 
 var post = require('../../models/post')
 
-router.get('api/posts', function (req, res, next) {
+router.get('/api/posts', function (req, res, next) {
     post.find()
     .sort('-date')
     .exec(function(err, posts) {
-        if (err) {return next (err)}
+        if (err) {return next (err) }
         res.json(posts)
     })
 })
