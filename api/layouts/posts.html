@@ -20,7 +20,7 @@
         </form>
     <!-- list group items-->
          <ul class='list-group'>
-        <li ng-repeat='posts in posts' class='list-group-item'>
+        <li ng-repeat="posts in posts | orderBy:'-date'" class='list-group-item'>
             <strong>@{{ post.username}}</strong>
             <span>{{ post.body }}</span>
         </li>

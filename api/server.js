@@ -9,9 +9,11 @@ app.use(bodyParser.json())
 
 //Get Request from DB
 app.get('/api/posts', function (req, res, next) {
-    post.find(function(err, posts) {
-        if (err) { return next (err)}
-    res.json(posts)
+    post.find()
+        .sort('-date')
+        .exec(function (err, posts {
+           if (err) { return next (err) } 
+           res.json(posts)
     })
 })   
 //Creating Post End Point
