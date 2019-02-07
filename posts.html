@@ -6,60 +6,60 @@
     </head>
     <body ng-app='app'>
      <div ng-controller='PostsCtrl' class='Container'>
-         <h1>Recent Posts</h1>
-         <!-- form-->
-         <form role='form'>
-           <div class='form-group'>
-           <div class='input-group'> 
-         <input ng-model='postbody' class='form-control' />
-            <span class='input-group-btn'>
+    <h1>Recent Posts</h1>
+     <!-- form-->
+        <form role='form'>
+        <div class='form-group'>
+        <div class='input-group'> 
+        <input ng-model='postbody' class='form-control' />
+        <span class='input-group-btn'>
               <button ng-click='add post()' class='btn btn-default'>Add Posts</button>   
-            </span>
-           </div>
+        </span>
+        </div>
         </div>
         </form>
-        <!-- list group items-->
-
-
+    <!-- list group items-->
          <ul class='list-group'>
-            <li ng-repeat='posts in posts' class='list-group-item'>
+        <li ng-repeat='posts in posts' class='list-group-item'>
                  <strong>@{{ post.username}}</strong>
                  <span>{{ post.body }}</span>
-            </li>
-         </ul>
+        </li>
+        </ul>
         </div>
-    
     <!-- Angular & Library-->
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
     <script>
-        // create app module
-        var app = angular.module('app', [])
+    // create app module
+    var app = angular.module('app', [])
 
-        // create the PostsCtrl Module
-        // dependency inject $scope
-        app.controller('PostsCtrl', function ($scope) {
+    // create the PostsCtrl Module
+    // dependency inject $scope
+     app.controller('PostsCtrl', function ($scope) {
         
-        // the function runs when the "add post" button is clicked   
-            $scope.addpost = function () {
-                // only add a post if there is a body
-                $scope.posts.unshift({
-                    username: 'bridgetsarah',
-                    body: 'my new post!'
-                })
-            } 
-            if ($scope.postBody) { }= null
-            
-
-            $scope.posts = [
-            {
-                username: 'bridget',
-                body: 'node rules!'
-            },
-            {
-                username: 'bridget123',
-                body: 'trying out angular js'
-            }
-            ]
+    // the function runs when the "add post" button is clicked   
+        $scope.addpost = function () {
+    // only add a post if there is a body
+         if ($scope.postBody) {
+    // unshift a new post into $scope.posts 
+        $scope.posts.unshift({
+            username: 'bridgetsarah',
+            body: $scope.postbody // use the text entered
+        })
+    // clear out the input field
+        $scope.postBody = null
+        }
+        }
+    // Starting data    
+        $scope.posts = [
+        {
+             username: 'bridget',
+             body: 'node rules!'
+        },
+        {
+             username: 'bridget123',
+             body: 'trying out angular js'
+        }
+        ]
         })
     </script>   
     </body>
