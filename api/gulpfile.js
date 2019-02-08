@@ -11,7 +11,7 @@ gulp.task('js', function(require){
     .pipe(gulp.dest('assets'))
 })
 
-// gulp watcher! 
+// gulp watcher (NG folder directory)!!!! 
 
 gulp.task('watch:js', ['js'], function(){
     gulp.watch('ng/**/*.js', ['js'])
