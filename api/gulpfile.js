@@ -3,11 +3,10 @@ var concat = require('gulp-concat')
 var uglify = require('gulp-uglify')
 var ngAnnotate = require('gulp-ng-annotate')
 
-gulp.task('js', function(){
+gulp.task('js', function(require){
     gulp.src(['ng/module.js', 'ng/**/*.js'])
     .pipe(concat('app.js'))
-    .pipe(ngAnnotate())
-    .pipe(uglify())
+    .pipe(ngAnnotate(require))
+    .pipe(uglify(require))
     .pipe(gulp.dest('assets'))
-     done();
-});
+})
