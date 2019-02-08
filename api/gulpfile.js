@@ -4,6 +4,7 @@ var sourcemaps = require('gulp-sourcemaps')
 var uglify = require('gulp-uglify')
 var ngAnnotate = require('gulp-ng-annotate')
 
+
 gulp.task('js', function(require){
     gulp.src(['ng/module.js', 'ng/**/*.js'])
     .pipe(sourcemaps.init())
@@ -18,4 +19,11 @@ gulp.task('js', function(require){
 
 gulp.task('watch:js', ['js'], function(){
     gulp.watch('ng/**/*.js', ['js'])
+})
+
+//read files under the gulp folder directory!!
+
+var fs = require('fs')
+fs.readdirSync(__dirname + '/gulp').forEach(function (require) {
+    require('./gulp/' + task)
 })
