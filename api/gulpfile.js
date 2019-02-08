@@ -16,20 +16,21 @@ gulp.task('js', function(require){
     .pipe(gulp.dest('assets'))
 })
 
-// gulp watcher (NG folder directory)!!!! 
-
+//-----------------Gulp watchers -----------------------
+/
+//-----------------Gulp JS Watcher----------------------// Watching NG folder//
 gulp.task('watch:js', ['js'], function(){
     gulp.watch('ng/**/*.js', ['js'])
 })
-// gulp watcher css file
+//-----------------Gulp CSS Watcher---------------------// Watching CSS folder
 gulp.task('watch:css', function(){
     gulp.watch('css/**/*.styl', ['css'])
 })
 
-
+//Having issue minimising CSS + Gulp
 //read files under the gulp folder directory!!
-
-
+var fs = require('fs');
 fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
-    require('./gulp/' + task)
-})
+    require('./gulp/' + task);
+});
+
