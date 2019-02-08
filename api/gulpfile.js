@@ -3,6 +3,7 @@ var concat = require('gulp-concat')
 var sourcemaps = require('gulp-sourcemaps')
 var uglify = require('gulp-uglify')
 var ngAnnotate = require('gulp-ng-annotate')
+var fs = require('fs')
 
 
 gulp.task('js', function(require){
@@ -20,10 +21,15 @@ gulp.task('js', function(require){
 gulp.task('watch:js', ['js'], function(){
     gulp.watch('ng/**/*.js', ['js'])
 })
+// gulp watcher css file
+gulp.task('watch:css', function(){
+    gulp.watch('css/**/*.styl', ['css'])
+})
+
 
 //read files under the gulp folder directory!!
 
-var fs = require('fs')
-fs.readdirSync(__dirname + '/gulp').forEach(function (require) {
+
+fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
     require('./gulp/' + task)
 })
