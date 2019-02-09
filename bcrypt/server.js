@@ -25,4 +25,12 @@ app.post('/session', function (req, res){
     })
 })
 
+app.get('/user', function (req, res){
+    var token = req.headers['x-auth']
+    var user = jwt.decode(token, secretKey)
+//TODO: pull user info from database
+    res.json(user)
+})
+
+app.listen(3000)
 
