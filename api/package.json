@@ -21,6 +21,7 @@
   "author": "Bridget Sarah",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "gulp-concat": "^2.6.1",
@@ -29,6 +30,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.1",
+    "jwt-simple": "^0.5.5",
     "mongoose": "^5.4.10",
     "nodemon": "^1.18.9"
   },
