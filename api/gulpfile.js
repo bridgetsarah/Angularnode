@@ -15,16 +15,15 @@ gulp.task('js', function(require){
     .pipe(gulp.dest('assets'))
 })
 
-gulp.task('css', function(require){
-    gulp.src(['css/app.styl', 'css/app.styl'])
-    .pipe(uglify())
-    .pipe(stylus())
-    .pipe(gulp.dest('./css/'));
-});
+gulp.task('css', function (require){
+    gulp.scr('css/**/*.styl')
+    .pipe(stylus(require))
+    .pipe(gulp.dest('assets'))
+})
 
 
 //-----------------Gulp watchers -----------------------
-
+gulp.task('dev',['watch:css', 'watch:js'])
 //-----------------Gulp JS Watcher----------------------// Watching NG folder//
 gulp.task('watch:js', ['js'], function(){
     gulp.watch('ng/**/*.js', ['js'])
@@ -34,10 +33,10 @@ gulp.task('watch:css', function(require){
     gulp.watch('css/**/*.styl', ['css'])
 })
 
-//Having issue minimising CSS + Gulp
+//Having issue minimising CSS + Gulp [temp removed]
 //read files under the gulp folder directory!!
 var fs = require('fs');
 fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
     require('./gulp/' + task);
-});
+})
 
