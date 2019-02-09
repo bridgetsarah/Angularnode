@@ -42,6 +42,7 @@ app.get('/', function (req, res) {
 
 
    //server listening
-app.listen(3000, function () {
+var server = app.listen(3000, function () {
     console.log('server listening on', 3000)
 })
+require('./websockets').connect(server)
