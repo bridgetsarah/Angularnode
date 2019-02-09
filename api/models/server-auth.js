@@ -1,4 +1,9 @@
+var express = require('express')
+var jwt = require('jwt-simple')
+var app = express()
+var bcypt = require('bcrypt')
 var User = require('./user')
+app.use(require ('body-parser').json())
 
 //Creating route POST - to create new user accounts
 
@@ -24,5 +29,13 @@ app.post('/session', function (req, res, next){
                 res.json(token)
             })
         })
+    })
+})
+
+app.get('/user', function (req, res){
+    var token = req.headers['x-auth']
+    var auth = jwt.decode(token, secretKey)
+    user.findOne({username: auth.username}, function (err, user){
+        res.json(user)
     })
 })
