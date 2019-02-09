@@ -10,6 +10,10 @@ module.exports = router
 
 //Layout endpoints
 
-//var express = require('express')
+var express = require('express')
 //var router = express.router()
-//router.use(express.static(__dirname + '/../assets'))
+router.use(express.static(__dirname + '/../assets'))
+router.use(express.static(__dirname + '/../templates'))
+
+
+
