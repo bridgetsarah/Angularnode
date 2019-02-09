@@ -32,6 +32,8 @@
     "gulp-uglify": "^3.0.1",
     "jwt-simple": "^0.5.5",
     "mongoose": "^5.4.10",
+    "node-abi": "^2.7.0",
+    "nodejs-websocket": "^1.7.2",
     "nodemon": "^1.18.9",
     "ws": "^6.1.3"
   },

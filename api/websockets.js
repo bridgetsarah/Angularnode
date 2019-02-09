@@ -1,7 +1,22 @@
+var _ = require('lodash')
 var ws = require('ws')
+var clients = []
 exports.connect = function (server){
-    var wss = new ws.server({server: server})
+    var wss = new ws.Server({server: server})
     wss.on('connection', function (ws){
-        ws.send('hello ws!')
+        clients.push(ws)
+        exports.broadcast('new client joined')
+        ws.on('close', function(){
+            _.remove(clients, ws)
+        })
+    })
+}
+
+//Broadcasting
+
+exports.broadcast = function (topic, data){
+    var json = JSON.stringify({topic, data: data})
+    clients.forEach(function (client){
+        client.send(json)
     })
 }
