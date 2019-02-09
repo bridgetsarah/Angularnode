@@ -1,9 +1,6 @@
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/auth_demo')
-
-var user = mongoose.Schema({
-    username: String,
-    password: {type: String, select: false},
+var db = require('../db')
+var user = db.Schema({
+    username: {type: String, required: true },
+    password: {type: String, required: true, select: false}
 })
-
-module.exports = mongoose.model('user', user)
+module.exports = dv.model('user', user)
