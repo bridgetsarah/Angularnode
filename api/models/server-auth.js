@@ -7,15 +7,7 @@ app.use(require ('body-parser').json())
 
 //Creating route POST - to create new user accounts
 
-app.post('/user', function (req, res, next){
-    var user = new User({username: req.body.username})
-    bcrypt.hash(req.body.password, 10, function (err, hash){
-        user.password = hashuser.save(function (err, user) {
-            if (err) {throw next(err)}
-            res.send(201)
-        })
-    })
-})
+var secretKey = 'supersecretkey'
 
 app.post('/session', function (req, res, next){
     user.findOne({username: req.body.username}, function (err, user) {
@@ -37,5 +29,14 @@ app.get('/user', function (req, res){
     var auth = jwt.decode(token, secretKey)
     user.findOne({username: auth.username}, function (err, user){
         res.json(user)
+    })
+})
+app.post('/user', function (req, res, next){
+    var user = new User({username: req.body.username})
+    bcrypt.hash(req.body.password, 10, function (err, hash){
+        user.password = hashuser.save(function (err, user) {
+            if (err) {throw next(err)}
+            res.send(201)
+        })
     })
 })

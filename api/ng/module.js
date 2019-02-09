@@ -1,3 +1,5 @@
 // api/ng/module.js
 
-angular.module('app', [])
+angular.module('app', [
+    'ngRoute'
+])
