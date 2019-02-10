@@ -29,9 +29,16 @@ router.post('/', function (req, res, next){
         res.json(201, post)
     })
 })
-
-
-
-
     module.exports = router
+
+    //web sockets module (/skipped p132 - on going issue with node ws module - needs resolving)
+router.post('/', function(req, res, next){
+    var post = new post({req:body.body})
+    post.username = req.auth.username
+    post.save(function (err, post){
+        if (err) { return next(err) }
+        websockets.broadcast('new_post', post)
+        res.json(201, post)
+    })
+})
 
