@@ -11,6 +11,12 @@ angular.module('app')
         }
     }
 })
+// websockets post ws function - p134 - remove unshift function if posts appear twice!!
+$scope.$on('ws:new_post', function (_, post){
+    $scope.$apply(function (){
+        $scope.posts.unshift(post)
+    })
+})
 
 PostsSvc.fetch().success(function (posts){
     $scope.posts = posts
