@@ -1,4 +1,4 @@
-var websockets = require('../../websockets')
+//var websockets = require('../../websockets')
 var _ = require('lodash')
 var ws = require('ws')
 var clients = []
@@ -23,8 +23,9 @@ exports.broadcast = function (topic, data){
 }
 
 //web sockets module (/skipped p132 - on going issue with node ws module - needs resolving)
-router.post('/', function(req, res, next){
-    var post = new post({req:body.body})
+var websockets = require('../../websockets')
+router.post('/', function(req, res, next) {
+    var post = new post({body: req.body.body})
     post.username = req.auth.username
     post.save(function (err, post){
         if (err) { return next(err) }
