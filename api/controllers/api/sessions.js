@@ -1,12 +1,11 @@
 // api/api/sessions.js
-
-var router = require('express').router()
-var User = require('../../models/users')
+var router = require('express').Router()
 var bcrypt = require('bcrypt')
+var User = require('../../models/users')
 var jwt = require('jwt-simple')
 var config = require=('../../config')
 
-router.post('/', function (req, res, next){
+router.post('/sessions', function (req, res, next){
     User.findOne({username: req.body.username})
     .select('password').select('username')
     .exec(function (err, user){
