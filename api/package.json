@@ -23,6 +23,7 @@
   "dependencies": {
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
+    "commander": "^2.19.0",
     "dev": "^0.1.3",
     "express": "^4.16.4",
     "gulp-concat": "^2.6.1",
