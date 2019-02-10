@@ -1,9 +1,9 @@
-<!doctype HTML> 
-<html> <!-- POSTS FILE INSIDE LAYOUTS FOLDER!!!-->
+<!DOCTYPE html> 
+<html ng-app='app'>
     <head>
     <title> Hello World Mean Application</title>
     <link rel="stylesheet" href="/app.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     </head>
     <body ng-app='app' ng-controller='ApplicationCtrl'>
     <nav class='navbar navbar-default'>
@@ -22,8 +22,9 @@
     <div ng-view></div>
     </body> 
     <!-- Angular & Library-->
-    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
-    <script> src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js'</script>   
     <script src='/app.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js'></script>   
+
     </body>
     </html>   
