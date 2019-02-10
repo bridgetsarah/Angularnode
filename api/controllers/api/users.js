@@ -1,21 +1,20 @@
 // api/controllers/api/users.js
 
 var router = require('express').Router
-var bcypt = require('bcrypt')
+var bcrypt = require('bcrypt')
 var jwt = require('jwt-simple')
 var User = require('../../models/user')
 var config = require('../../config')
 
 router.get('/', function (req, res, next){
     if (!req.headers['x-auth']){
-        return res.send(401)
+        return res.sendStatus(401)
     }
-})
-
-var auth = jwt.decode(req.headers['x-auth'], config.secret)
-User.findOne({username: auth.username}, function (err, user){
-    if (err) { return next (err) }
-    res.json(user)
+    var auth = jwt.decode(req.headers['x-auth'], config.secret)
+    User.findOne({username: auth.username}, function (err, user){
+        if (err) { return next (err) }
+        res.json(user)
+    })
 })
 
 router.post('/', function (req, res, next){
@@ -25,7 +24,7 @@ router.post('/', function (req, res, next){
         user.password = hash
         user.save(function (err) {
             if (err) { return next(err) }
-                res.send(201)
+                res.sendStatus(201)
         })
     })
 })
