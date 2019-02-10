@@ -1,6 +1,8 @@
 // api/controllers/api/posts.js
 
+var websockets = require('../../websockets')
 var post = require('../../models/post')
+
 
 router.get('/api/posts', function (req, res, next) {
     post.find()
