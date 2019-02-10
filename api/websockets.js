@@ -32,3 +32,11 @@ router.post('/', function(req, res, next){
         res.json(201, post)
     })
 })
+
+//p129 - added connect module
+exports.connect = function (server) {
+    var wss = new ws.Server({server: server})
+    wss.on('connnection', function (ws){
+        ws.send('hello')
+    })
+}

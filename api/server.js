@@ -1,5 +1,5 @@
 //Server js file (node)
-
+var websockets = require('./websockets').connect(server)
 var express = require('express')
 var bodyParser = require('body-parser')
 var Post = require('./models/post')
