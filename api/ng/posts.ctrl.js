@@ -1,6 +1,31 @@
 angular.module('app')
+.controller('PostsCtrl', function ($scope, PostsSvc) {
+    $scope.addPost = function () {
+      if ($scope.postBody) {
+        PostsSvc.create({
+          body:     $scope.postBody
+        })
+        .then(function () {
+          $scope.postBody = null
+        })
+      }
+    }
 
-// Added Websocket function
+    $scope.$on('ws:new_post', function (_, post){
+        $scope.$apply(function () {
+            $scope.posts.unshift(post)
+        })
+    })
+
+PostsSvc.fetch()
+ .then(function (posts){
+     $scope.posts = posts
+ })
+})
+
+///Web sockets (area under consideration if still required or not)
+
+// Added Websocket function //
 .service('WebSocketSvc', function ($rootScope){
     var connection
     this.connect = function (){
@@ -18,28 +43,3 @@ angular.module('app')
 }).run(function (WebSocketSvc){
     WebSocketSvc.connect()
 })
-
-
-.controller('postsCtrl', function ($scope, PostsSvc){
-    $scope.addPost = function () {
-        if ($scope.postBody) {
-            PostsSvc.create({
-                username: 'bridgetsarah',
-                body: $scope.postBody
-            }).success(function (post){
-                $scope.postBody = null
-            })
-        }
-    }
-})
-// websockets post ws function - p134 - remove unshift function if posts appear twice!!
-$scope.$on('ws:new_post', function (_, post){
-    $scope.$apply(function (){
-        $scope.posts.unshift(post)
-    })
-})
-
-PostsSvc.fetch().success(function (posts){
-    $scope.posts = posts
-  })
-  
