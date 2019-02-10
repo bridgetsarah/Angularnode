@@ -1,9 +1,11 @@
 var gulp = require('gulp')
-var concat = require('gulp-concat')
-var sourcemaps = require('gulp-sourcemaps')
-var uglify = require('gulp-uglify')
+var data = require('gulp-data');
+var concat = require('gulp-concat') //gulp 
+var sourcemaps = require('gulp-sourcemaps') //gulp sourcemaps
+var uglify = require('gulp-uglify') //javascript minification tool
 var ngAnnotate = require('gulp-ng-annotate')
-var stylus = require('gulp-stylus')
+var stylus = require('gulp-stylus') //javascript css tool
+
 
 gulp.task('js', function(require){
     gulp.src(['ng/module.js', 'ng/**/*.js'])
@@ -15,10 +17,10 @@ gulp.task('js', function(require){
     .pipe(gulp.dest('assets'))
 })
 
-gulp.task('css', function (require){
-    gulp.scr('css/**/*.styl')
-    .pipe(stylus(require))
-    .pipe(gulp.dest('/assets/css'))
+gulp.task('css', function(){
+    return gulp.src('css/**/*/.styl')
+    .pipe(stylus())
+    .pipe(gulp.dest('assets'))
 })
 //-----------------Gulp JS Watcher----------------------// Watching NG folder//
 //gulp.task('watch:js', ['js'], function(){
