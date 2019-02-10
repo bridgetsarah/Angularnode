@@ -3,7 +3,6 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var Post = require('./models/post')
-var websockets = require('./websockets').connect(server)
 
 var app = express()
 app.use(bodyParser.json())

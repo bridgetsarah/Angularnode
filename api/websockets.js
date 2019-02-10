@@ -1,4 +1,3 @@
-//var websockets = require('../../websockets')
 var _ = require('lodash')
 var ws = require('ws')
 var clients = []
@@ -14,7 +13,7 @@ exports.connect = function (server){
 }
 
 //Broadcasting
-
+/////////////////area correct
 exports.broadcast = function (topic, data){
     var json = JSON.stringify({topic, data: data})
     clients.forEach(function (client){
@@ -23,16 +22,6 @@ exports.broadcast = function (topic, data){
 }
 
 //web sockets module (/skipped p132 - on going issue with node ws module - needs resolving)
-var websockets = require('../../websockets')
-router.post('/', function(req, res, next) {
-    var post = new post({body: req.body.body})
-    post.username = req.auth.username
-    post.save(function (err, post){
-        if (err) { return next(err) }
-        websockets.broadcast('new_post', post)
-        res.json(201, post)
-    })
-})
 
 //p129 - added connect module
 exports.connect = function (server) {
