@@ -7,7 +7,7 @@ exports.config = {
         enableTimeouts: false
     },
     onPrepare: function() {
-        process.env.PORT = 3001
+        process.env.PORT = 3002
         require('./server')
     }
 }

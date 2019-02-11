@@ -28,7 +28,7 @@ app.get('/api/posts', function (req, res, next) {
 })   
 //Creating Post End Point
 //------------------------------------------------
-var Post = require('.models/post')
+//var Post = require('.models/post')
 app.post('/api/posts', function (req, res, next){
     var post = new Post({
         username: req.body.username,
