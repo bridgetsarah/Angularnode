@@ -7,11 +7,12 @@ var Post = require('./models/post')
 
 var app = express()
 app.use(logger('dev'))
-app.use(require('./controllers'))
+
 app.use(bodyParser.json())
 
 // Controllers 
 app.use( require('./controllers/static'))
+app.use(require('.controllers/controllers'))
 
 
 //server listening (port:3000!!)
