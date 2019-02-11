@@ -3,7 +3,7 @@
  
 describe('making a post', function(){
     it('logs in and creaes a new post', function() {
-        browser.get('http://localhost:3000')
+        browser.get('http://localhost:3001')
         //go to home page
         //click 'login'
         //fill out and submit login form
