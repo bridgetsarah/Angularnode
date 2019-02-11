@@ -1,4 +1,4 @@
-//Creating base router [api/test/server/controllers/index.js]
+//Base Controller for Node Mocha Tests
 var router = require('express').Router
 var bodyParser = require('body-parser')
 
