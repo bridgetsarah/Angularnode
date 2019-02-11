@@ -2,9 +2,12 @@
 
 var express = require('express')
 var bodyParser = require('body-parser')
+var logger     = require('morgan')
 var Post = require('./models/post')
 
 var app = express()
+app.use(logger('dev'))
+app.use(require('./controllers'))
 app.use(bodyParser.json())
 
 // Controllers 

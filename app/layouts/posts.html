@@ -1,1 +1,70 @@
-<link rel="stylesheet" href="/app.css">
+<html>
+    <head>
+    <title> Hello World Mean Application</title>
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    </head>
+    <body ng-app='app'>
+     <div ng-controller='PostsCtrl' class='Container'>
+    <h1>Recent Posts</h1>
+     <!-- form-->
+        <form role='form'>
+        <div class='form-group'>
+        <div class='input-group'> 
+        <input ng-model='postbody' class='form-control' />
+        <span class='input-group-btn'>
+            <button ng-click='add post()' class='btn btn-default'>Add Posts</button>   
+        </span>
+        </div>
+        </div>
+        </form>
+    <!-- list group items-->
+         <ul class='list-group'>
+        <li ng-repeat='posts in posts' class='list-group-item'>
+            <strong>@{{ post.username}}</strong>
+            <span>{{ post.body }}</span>
+        </li>
+        </ul>
+        </div>
+    <!-- Angular & Library-->
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+    <script>
+    // create app module
+    var app = angular.module('app', [])
+
+    // PostsController Module & Dependency Inject Scope
+
+     app.controller('PostsCtrl', function ($scope, $http) {
+        
+    
+        $scope.addpost = function () {                  // the function runs when the "add post" button is clicked   
+         if ($scope.postBody) {                         // only add a post if there is a body                      
+          $scope.posts.unshift({                        // unshift a new post into $scope.posts 
+            username: 'bridgetsarah',
+            body: $scope.postbody                       // use the text entered
+        })
+                                                        
+        $scope.postBody = null                          // clear out the input field
+        }
+        }
+        // New $HTTP scope posts section               ----------------------------------------------------                                         
+        $http.get('http://localhost:3000/api/posts')
+        .success(function (posts){
+            $scope.posts = posts
+        })
+        
+        
+    //  $scope.posts = [                                // Starting data   replacing area with http
+    //   {
+    //        username: 'bridget',
+    //        body: 'node rules!'
+    //    },
+    //   {
+    //        username: 'bridget123',
+    //         body: 'trying out angular js'
+    //   }
+    //   ]
+    //   })
+    </script>   
+    </body>
+</html>
