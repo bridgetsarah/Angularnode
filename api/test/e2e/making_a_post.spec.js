@@ -2,6 +2,7 @@ import { element } from "protractor";
 
 // api/test/e2e/making_a_post.spec.js - p146
 
+var db = require('../../db')
  
 describe('making a post', function(){
     it('logs in and creaes a new post', function() {
@@ -20,6 +21,10 @@ describe('making a post', function(){
         
         //the user should now see their post as the first post on the page
         
+        // wipe database after each run of protractor
+        afterEach(function (){
+            db.connection.db.dropDatabase()
+        })
         browser.pause()
     })
     

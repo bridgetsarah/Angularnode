@@ -2,28 +2,22 @@
 
 var express = require('express')
 var bodyParser = require('body-parser')
-var logger = require('morgan')
 var Post = require('./models/post')
-var websockets = require('./websockets')
 
 var app = express()
 app.use(bodyParser.json())
-app.use(logger('dev'))
-//app.use(require('./auth'))    // issue starting server with the following??
-//app.use('/api/posts', require('.controllers/api/posts'));
-//app.use('/api/sessions', require('.controllers/api/sessions'))
-//app.use('/api/users', require('.controllers/api/users'))
+
+// Controllers 
 app.use( require('./controllers/static'))
 
-// Server for Protractor - hopefully work!
-var port = process.envPORT || 3000
-var server = app.listen(port, function () {
-    console.log('server', process.pid, 'listening on', port)
+
+//server listening (port:3000!!)
+  var server = app.listen(3000, function () {
+    console.log('server listening on', 3000)
 })
 require('./websockets').connect(server)
 
-
-//Get Request from DB
+//Database Requests (Get)
 app.get('/api/posts', function (req, res, next) {
     post.find()
         .sort('-date')
@@ -33,7 +27,8 @@ app.get('/api/posts', function (req, res, next) {
     })
 })   
 //Creating Post End Point
-//------------------------------------------------var Post = require('.models/post')
+//------------------------------------------------
+var Post = require('.models/post')
 app.post('/api/posts', function (req, res, next){
     var post = new Post({
         username: req.body.username,
