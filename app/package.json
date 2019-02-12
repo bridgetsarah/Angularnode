@@ -38,6 +38,7 @@
     "gulp-uglify": "^3.0.1",
     "jwt-simple": "^0.5.5",
     "karma-cli": "^2.0.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "lodash": "^4.17.11",
     "logger": "0.0.1",
     "mongoose": "^5.4.11",
