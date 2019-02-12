@@ -1,6 +1,5 @@
 // Node Testing //Test/server/controllers/api/post.spec.js
-
-var expect = require('chai')
+var chai = require('chai')
 var expect = require('chai').expect
 var api = require('../../support/api')
 var user = require('../../support/user')
@@ -14,9 +13,9 @@ describe('controllers.api.posts', function () {
   describe('GET /api/posts', function () {
     beforeEach(function (done) {
       var posts = [
-        {body: 'post1', username: 'bridgetsarah'},
-        {body: 'post2', username: 'bridgetsarah'},
-        {body: 'post3', username: 'bridgetsarah'}
+        {body: 'post1', username: 'dickeyxxx'},
+        {body: 'post2', username: 'dickeyxxx'},
+        {body: 'post3', username: 'dickeyxxx'}
       ]
       Post.create(posts, done)
     })
