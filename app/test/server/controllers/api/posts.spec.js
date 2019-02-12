@@ -30,6 +30,9 @@ describe('controllers.api.posts', function () {
     })
   })
 
+
+
+  // GET api posts Block
   describe('POST /api/posts', function () {
     var token
 
