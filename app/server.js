@@ -10,9 +10,9 @@ app.use(logger('dev'))
 
 app.use(bodyParser.json())
 
-// Controllers 
-app.use( require('./controllers/static'))
-app.use(require('.controllers/controllers'))
+// Controllers  - Fixed issue with controller temporary - Revision on controllers needed
+//app.use( require('./controllers/static'))
+//app.use(require('.controllers/controllers'))
 
 
 //server listening (port:3000!!)
