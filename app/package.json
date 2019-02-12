@@ -4,11 +4,11 @@
   "description": "Node Express API",
   "main": "server.js",
   "scripts": {
-    "test": "none"
+    "test": "./node_modules/.bin/jshint . && ./node_modules/.bin/mocha && ./node_modules/.bin/protractor"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/mean/api"
+    "url": "github.com/mean/app"
   },
   "keywords": [
     "Mongo",
@@ -54,6 +54,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "gulp": "^4.0.0",
+    "jshint": "^2.10.1",
     "jsonwebtoken": "^8.4.0",
     "mocha": "^5.2.0",
     "supertest": "^3.4.2",
