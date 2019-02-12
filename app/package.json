@@ -37,6 +37,7 @@
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.1",
     "jwt-simple": "^0.5.5",
+    "karma-cli": "^2.0.0",
     "lodash": "^4.17.11",
     "logger": "0.0.1",
     "mongoose": "^5.4.11",
@@ -56,6 +57,7 @@
     "gulp": "^4.0.0",
     "jshint": "^2.10.1",
     "jsonwebtoken": "^8.4.0",
+    "karma": "^4.0.0",
     "mocha": "^5.2.0",
     "supertest": "^3.4.2",
     "validator": "^10.11.0"
